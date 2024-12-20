@@ -44,4 +44,5 @@ public class UserController {
         var serviceResponse = userService.deleteUser(userId);
         return new ResponseEntity<>(serviceResponse, serviceResponse.getStatusCode());
     }
+
 }
