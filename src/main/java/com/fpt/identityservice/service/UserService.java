@@ -23,7 +23,7 @@ public class UserService {
 
         var user = new User();
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("Username already exists!");
+            throw new RuntimeException("Tài khoản đã tồn tại!");
         }
 
         user.setUsername(request.getUsername());
@@ -38,7 +38,7 @@ public class UserService {
                 .setSucceeded(true)
                 .setStatusCode(HttpStatus.CREATED)
                 .setResponseCode(HttpStatus.CREATED.value())
-                .addDetail("message", "Registered successfully!");
+                .addDetail("message", "Đăng ký tài khoản thành công!");
     }
 
     public ServiceResponse getUsers() {
@@ -52,7 +52,7 @@ public class UserService {
                 .setSucceeded(true)
                 .setStatusCode(HttpStatus.OK)
                 .setResponseCode(HttpStatus.OK.value())
-                .addDetail("message", "Get list users successfully!")
+                .addDetail("message", "Lấy danh sách tài khoản thành công!")
                 .addDetail("data", data);
         return serviceResponse;
     }
@@ -61,7 +61,7 @@ public class UserService {
         var serviceResponse = new ServiceResponse();
         var user = userRepository.findById(id).orElse(null);
         if (user == null) {
-            throw new NullPointerException("User not found!");
+            throw new NullPointerException("Không tìm thấy tài khoản!");
         }
 
         var data = new LinkedHashMap<String, Object>();
@@ -71,7 +71,7 @@ public class UserService {
                 .setSucceeded(true)
                 .setStatusCode(HttpStatus.OK)
                 .setResponseCode(HttpStatus.OK.value())
-                .addDetail("message", "Get user successfully!")
+                .addDetail("message", "Lấy thông tin tài khoản thành công!")
                 .addDetail("data", data);
     }
 
@@ -80,7 +80,7 @@ public class UserService {
         User user = userRepository.findById(userId).orElse(null);
 
         if (user == null) {
-            throw new NullPointerException("User not found!");
+            throw new NullPointerException("Không tìm thấy tài khoản!");
         }
 
         user.setPassword(request.getPassword());
@@ -92,7 +92,7 @@ public class UserService {
                 .setSucceeded(true)
                 .setStatusCode(HttpStatus.OK)
                 .setResponseCode(HttpStatus.OK.value())
-                .addDetail("message", "Updated user successfully!");
+                .addDetail("message", "Chỉnh sửa tài khoản thành công!");
     }
 
     public ServiceResponse deleteUser(String userId) {
@@ -100,7 +100,7 @@ public class UserService {
         var user = userRepository.findById(userId).orElse(null);
 
         if (user == null) {
-            throw new NullPointerException("User not found!");
+            throw new NullPointerException("Không tìm thấy tài khoản!");
         }
 
         userRepository.delete(user);
@@ -109,6 +109,6 @@ public class UserService {
                 .setSucceeded(true)
                 .setStatusCode(HttpStatus.NO_CONTENT)
                 .setResponseCode(HttpStatus.NO_CONTENT.value())
-                .addDetail("message", "Deleted user successfully!");
+                .addDetail("message", "Xóa tài khoản thành công!");
     }
 }

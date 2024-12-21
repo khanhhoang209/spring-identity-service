@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
                 .setStatusCode(HttpStatus.BAD_REQUEST)
                 .setResponseCode(HttpStatus.BAD_REQUEST.value())
                 .addDetail("message", exception.getMessage())
-                .addError("invalidCredentials", "Invalid credentials provided!");
+                .addError("invalidCredentials", "Thông tin gửi từ client không hợp lệ!");
         return new ResponseEntity<>(serviceResponse, serviceResponse.getStatusCode());
     }
 
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
                 .setStatusCode(HttpStatus.BAD_REQUEST)
                 .setResponseCode(HttpStatus.BAD_REQUEST.value())
                 .addDetail("message", exception.getFieldError().getDefaultMessage())
-                .addError("invalidCredentials", "Invalid credentials provided!");
+                .addError("invalidCredentials", "Thông tin gửi từ client không hợp lệ!");
         return new ResponseEntity<>(serviceResponse, serviceResponse.getStatusCode());
     }
 
@@ -43,7 +43,7 @@ public class GlobalExceptionHandler {
                 .setStatusCode(HttpStatus.NOT_FOUND)
                 .setResponseCode(HttpStatus.NOT_FOUND.value())
                 .addDetail("message", exception.getMessage())
-                .addError("notFound" ,"The requested resource could not be found!");
+                .addError("notFound" ,"Không tìm thấy tài nguyên!");
         return new ResponseEntity<>(serviceResponse, serviceResponse.getStatusCode());
     }
 
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
                 .setStatusCode(HttpStatus.NOT_FOUND)
                 .setResponseCode(HttpStatus.NOT_FOUND.value())
                 .addDetail("message", exception.getMessage())
-                .addError("notFound", "The requested endpoint could not be found!");
+                .addError("notFound", "Không tìm thấy endpoint yêu cầu!");
         return new ResponseEntity<>(serviceResponse, serviceResponse.getStatusCode());
     }
 
@@ -67,7 +67,7 @@ public class GlobalExceptionHandler {
                 .setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR)
                 .setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
                 .addDetail("message", exception.getMessage())
-                .addError("outOfService" ,"Internal Server Error!");
+                .addError("outOfService" ,"Lỗi không xác định từ máy chủ!");
         return new ResponseEntity<>(serviceResponse, serviceResponse.getStatusCode());
     }
 
