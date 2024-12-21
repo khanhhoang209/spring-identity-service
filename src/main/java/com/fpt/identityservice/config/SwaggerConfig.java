@@ -13,5 +13,6 @@ public class SwaggerConfig {
                 .title("spring-identity-service")
                 .version("v1")
         );
+
     }
 }
