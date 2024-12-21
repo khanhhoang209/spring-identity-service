@@ -1,8 +1,15 @@
 package com.fpt.identityservice.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class UserUpdateRequest {
+    @Size(min = 8, message = "Mật khẩu phải ít nhất có 8 ký tự!")
+    @NotBlank(message = "Mật khẩu không được bỏ trống!")
+    @NotEmpty(message = "Mật khẩu không được bỏ trống!")
     private String password;
     private String firstName;
     private String lastName;

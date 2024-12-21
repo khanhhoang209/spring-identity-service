@@ -8,13 +8,13 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 public class UserCreateRequest {
-    @Email(message = "Username must be in email form!")
-    @NotBlank(message = "Username cannot be blank!")
-    @NotEmpty(message = "Username cannot be empty!")
+    @Email(message = "Vui lòng nhập email!")
+    @NotBlank(message = "Email không được bỏ trống!")
+    @NotEmpty(message = "Email không được bỏ trống!")
     private String username;
-    @Size(min = 8, message = "Password must be at least 8 characters!")
-    @NotBlank(message = "Password cannot be blank!")
-    @NotEmpty(message = "Password cannot be empty!")
+    @Size(min = 8, message = "Mật khẩu phải ít nhất có 8 ký tự!")
+    @NotBlank(message = "Mật khẩu không được bỏ trống!")
+    @NotEmpty(message = "Mật khẩu không được bỏ trống!")
     private String password;
     private String firstName;
     private String lastName;
