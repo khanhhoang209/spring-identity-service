@@ -45,16 +45,15 @@ public class UserService {
         var serviceResponse = new ServiceResponse();
         List<User> users = userRepository.findAll();
 
-        var data = new HashMap<String, Object>();
+        var data = new LinkedHashMap<String, Object>();
         data.put("users", users);
 
-        serviceResponse
+        return serviceResponse
                 .setSucceeded(true)
                 .setStatusCode(HttpStatus.OK)
                 .setResponseCode(HttpStatus.OK.value())
                 .addDetail("message", "Lấy danh sách tài khoản thành công!")
                 .addDetail("data", data);
-        return serviceResponse;
     }
 
     public ServiceResponse getUser(String id) {
